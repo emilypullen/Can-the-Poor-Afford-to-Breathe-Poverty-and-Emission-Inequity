@@ -117,11 +117,6 @@ Feel free to open issues, suggest features, or fork the repo for your own use.
 
 ---
 
-## License
-
-This project is open-source under the [MIT License](LICENSE).
-
----
 
 ## Contact
 
