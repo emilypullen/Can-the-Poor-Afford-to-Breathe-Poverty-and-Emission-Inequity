@@ -1,0 +1,236 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "0a821b8f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Defaulting to user installation because normal site-packages is not writeable\n",
+      "Collecting pandas\n",
+      "  Downloading pandas-2.3.0-cp39-cp39-macosx_11_0_arm64.whl (10.8 MB)\n",
+      "\u001b[K     |████████████████████████████████| 10.8 MB 8.4 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting numpy\n",
+      "  Downloading numpy-2.0.2-cp39-cp39-macosx_14_0_arm64.whl (5.3 MB)\n",
+      "\u001b[K     |████████████████████████████████| 5.3 MB 28.4 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting scikit-learn\n",
+      "  Downloading scikit_learn-1.6.1-cp39-cp39-macosx_12_0_arm64.whl (11.1 MB)\n",
+      "\u001b[K     |████████████████████████████████| 11.1 MB 16.1 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting plotly\n",
+      "  Downloading plotly-6.1.2-py3-none-any.whl (16.3 MB)\n",
+      "\u001b[K     |████████████████████████████████| 16.3 MB 62.0 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting folium\n",
+      "  Downloading folium-0.19.7-py2.py3-none-any.whl (112 kB)\n",
+      "\u001b[K     |████████████████████████████████| 112 kB 36.2 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting tzdata>=2022.7\n",
+      "  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)\n",
+      "\u001b[K     |████████████████████████████████| 347 kB 34.3 MB/s eta 0:00:01\n",
+      "\u001b[?25hRequirement already satisfied: python-dateutil>=2.8.2 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from pandas) (2.9.0.post0)\n",
+      "Collecting pytz>=2020.1\n",
+      "  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)\n",
+      "\u001b[K     |████████████████████████████████| 509 kB 44.7 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting joblib>=1.2.0\n",
+      "  Downloading joblib-1.5.1-py3-none-any.whl (307 kB)\n",
+      "\u001b[K     |████████████████████████████████| 307 kB 40.8 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting scipy>=1.6.0\n",
+      "  Downloading scipy-1.13.1-cp39-cp39-macosx_12_0_arm64.whl (30.3 MB)\n",
+      "\u001b[K     |████████████████████████████████| 30.3 MB 17.6 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting threadpoolctl>=3.1.0\n",
+      "  Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)\n",
+      "Requirement already satisfied: packaging in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from plotly) (25.0)\n",
+      "Collecting narwhals>=1.15.1\n",
+      "  Downloading narwhals-1.41.1-py3-none-any.whl (358 kB)\n",
+      "\u001b[K     |████████████████████████████████| 358 kB 28.7 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting branca>=0.6.0\n",
+      "  Downloading branca-0.8.1-py3-none-any.whl (26 kB)\n",
+      "Collecting xyzservices\n",
+      "  Downloading xyzservices-2025.4.0-py3-none-any.whl (90 kB)\n",
+      "\u001b[K     |████████████████████████████████| 90 kB 39.3 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting requests\n",
+      "  Downloading requests-2.32.3-py3-none-any.whl (64 kB)\n",
+      "\u001b[K     |████████████████████████████████| 64 kB 21.4 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting jinja2>=2.9\n",
+      "  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)\n",
+      "\u001b[K     |████████████████████████████████| 134 kB 49.9 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting MarkupSafe>=2.0\n",
+      "  Downloading MarkupSafe-3.0.2-cp39-cp39-macosx_11_0_arm64.whl (12 kB)\n",
+      "Requirement already satisfied: six>=1.5 in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages (from python-dateutil>=2.8.2->pandas) (1.15.0)\n",
+      "Collecting urllib3<3,>=1.21.1\n",
+      "  Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)\n",
+      "\u001b[K     |████████████████████████████████| 128 kB 35.8 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting idna<4,>=2.5\n",
+      "  Downloading idna-3.10-py3-none-any.whl (70 kB)\n",
+      "\u001b[K     |████████████████████████████████| 70 kB 37.0 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting certifi>=2017.4.17\n",
+      "  Downloading certifi-2025.4.26-py3-none-any.whl (159 kB)\n",
+      "\u001b[K     |████████████████████████████████| 159 kB 45.3 MB/s eta 0:00:01\n",
+      "\u001b[?25hCollecting charset-normalizer<4,>=2\n",
+      "  Downloading charset_normalizer-3.4.2-cp39-cp39-macosx_10_9_universal2.whl (201 kB)\n",
+      "\u001b[K     |████████████████████████████████| 201 kB 40.0 MB/s eta 0:00:01\n",
+      "\u001b[?25hInstalling collected packages: MarkupSafe, urllib3, numpy, jinja2, idna, charset-normalizer, certifi, xyzservices, tzdata, threadpoolctl, scipy, requests, pytz, narwhals, joblib, branca, scikit-learn, plotly, pandas, folium\n",
+      "Successfully installed MarkupSafe-3.0.2 branca-0.8.1 certifi-2025.4.26 charset-normalizer-3.4.2 folium-0.19.7 idna-3.10 jinja2-3.1.6 joblib-1.5.1 narwhals-1.41.1 numpy-2.0.2 pandas-2.3.0 plotly-6.1.2 pytz-2025.2 requests-2.32.3 scikit-learn-1.6.1 scipy-1.13.1 threadpoolctl-3.6.0 tzdata-2025.2 urllib3-2.4.0 xyzservices-2025.4.0\n",
+      "\u001b[33mWARNING: You are using pip version 21.2.4; however, version 25.1.1 is available.\n",
+      "You should consider upgrading via the '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install --upgrade pip' command.\u001b[0m\n",
+      "Note: you may need to restart the kernel to use updated packages.\n",
+      "Defaulting to user installation because normal site-packages is not writeable\n",
+      "Requirement already satisfied: pandas in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (2.3.0)\n",
+      "Requirement already satisfied: numpy in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (2.0.2)\n",
+      "Requirement already satisfied: scikit-learn in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (1.6.1)\n",
+      "Requirement already satisfied: plotly in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (6.1.2)\n",
+      "Requirement already satisfied: folium in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (0.19.7)\n",
+      "Requirement already satisfied: tzdata>=2022.7 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from pandas) (2025.2)\n",
+      "Requirement already satisfied: pytz>=2020.1 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from pandas) (2025.2)\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from pandas) (2.9.0.post0)\n",
+      "Requirement already satisfied: joblib>=1.2.0 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from scikit-learn) (1.5.1)\n",
+      "Requirement already satisfied: scipy>=1.6.0 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from scikit-learn) (1.13.1)\n",
+      "Requirement already satisfied: threadpoolctl>=3.1.0 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from scikit-learn) (3.6.0)\n",
+      "Requirement already satisfied: narwhals>=1.15.1 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from plotly) (1.41.1)\n",
+      "Requirement already satisfied: packaging in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from plotly) (25.0)\n",
+      "Requirement already satisfied: requests in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from folium) (2.32.3)\n",
+      "Requirement already satisfied: branca>=0.6.0 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from folium) (0.8.1)\n",
+      "Requirement already satisfied: jinja2>=2.9 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from folium) (3.1.6)\n",
+      "Requirement already satisfied: xyzservices in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from folium) (2025.4.0)\n",
+      "Requirement already satisfied: MarkupSafe>=2.0 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from jinja2>=2.9->folium) (3.0.2)\n",
+      "Requirement already satisfied: six>=1.5 in /Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages (from python-dateutil>=2.8.2->pandas) (1.15.0)\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from requests->folium) (2025.4.26)\n",
+      "Requirement already satisfied: idna<4,>=2.5 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from requests->folium) (3.10)\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from requests->folium) (2.4.0)\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in /Users/emilypullen/Library/Python/3.9/lib/python/site-packages (from requests->folium) (3.4.2)\n",
+      "\u001b[33mWARNING: You are using pip version 21.2.4; however, version 25.1.1 is available.\n",
+      "You should consider upgrading via the '/Applications/Xcode.app/Contents/Developer/usr/bin/python3 -m pip install --upgrade pip' command.\u001b[0m\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%pip install pandas numpy scikit-learn plotly folium\n",
+    "%pip install pandas numpy scikit-learn plotly folium\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "b4e64739",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/Users/emilypullen/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020\n",
+      "  warnings.warn(\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "from sklearn.preprocessing import MinMaxScaler, StandardScaler\n",
+    "from sklearn.cluster import KMeans\n",
+    "import plotly.express as px\n",
+    "import folium\n",
+    "import os"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "a99e20d0",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CO2_PATH = 'co2_emissions.csv'       # columns: country, year, co2_per_capita\n",
+    "POVERTY_PATH = 'poverty.csv'         # columns: country, year, extreme_poverty_share\n",
+    "REVENUE_PATH = 'revenue_gap.csv'     # columns: country, year, revenue_gap_pct\n",
+    "OUTPUT_DIR = 'output'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "4d558c83",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "os.makedirs(OUTPUT_DIR, exist_ok=True) # Create output directory"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "6c7b69fc",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: 'co2_emissions.csv'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn[16], line 23\u001b[0m\n\u001b[1;32m     20\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m df\u001b[38;5;241m.\u001b[39mreset_index(drop\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mTrue\u001b[39;00m), year\n\u001b[1;32m     22\u001b[0m \u001b[38;5;66;03m# %%\u001b[39;00m\n\u001b[0;32m---> 23\u001b[0m df, year \u001b[38;5;241m=\u001b[39m \u001b[43mload_and_merge\u001b[49m\u001b[43m(\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m     24\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mMerged data: \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mdf\u001b[38;5;241m.\u001b[39mshape[\u001b[38;5;241m0\u001b[39m]\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m countries for year \u001b[39m\u001b[38;5;132;01m{\u001b[39;00myear\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m\"\u001b[39m)\n",
+      "Cell \u001b[0;32mIn[16], line 7\u001b[0m, in \u001b[0;36mload_and_merge\u001b[0;34m(latest_year)\u001b[0m\n\u001b[1;32m      6\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[38;5;21mload_and_merge\u001b[39m(latest_year\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mNone\u001b[39;00m):\n\u001b[0;32m----> 7\u001b[0m     co2 \u001b[38;5;241m=\u001b[39m \u001b[43mpd\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mread_csv\u001b[49m\u001b[43m(\u001b[49m\u001b[43mCO2_PATH\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m      8\u001b[0m     poverty \u001b[38;5;241m=\u001b[39m pd\u001b[38;5;241m.\u001b[39mread_csv(POVERTY_PATH)\n\u001b[1;32m      9\u001b[0m     revenue \u001b[38;5;241m=\u001b[39m pd\u001b[38;5;241m.\u001b[39mread_csv(REVENUE_PATH)\n",
+      "File \u001b[0;32m~/Library/Python/3.9/lib/python/site-packages/pandas/io/parsers/readers.py:1026\u001b[0m, in \u001b[0;36mread_csv\u001b[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)\u001b[0m\n\u001b[1;32m   1013\u001b[0m kwds_defaults \u001b[38;5;241m=\u001b[39m _refine_defaults_read(\n\u001b[1;32m   1014\u001b[0m     dialect,\n\u001b[1;32m   1015\u001b[0m     delimiter,\n\u001b[0;32m   (...)\u001b[0m\n\u001b[1;32m   1022\u001b[0m     dtype_backend\u001b[38;5;241m=\u001b[39mdtype_backend,\n\u001b[1;32m   1023\u001b[0m )\n\u001b[1;32m   1024\u001b[0m kwds\u001b[38;5;241m.\u001b[39mupdate(kwds_defaults)\n\u001b[0;32m-> 1026\u001b[0m \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[43m_read\u001b[49m\u001b[43m(\u001b[49m\u001b[43mfilepath_or_buffer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mkwds\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Library/Python/3.9/lib/python/site-packages/pandas/io/parsers/readers.py:620\u001b[0m, in \u001b[0;36m_read\u001b[0;34m(filepath_or_buffer, kwds)\u001b[0m\n\u001b[1;32m    617\u001b[0m _validate_names(kwds\u001b[38;5;241m.\u001b[39mget(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mnames\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;28;01mNone\u001b[39;00m))\n\u001b[1;32m    619\u001b[0m \u001b[38;5;66;03m# Create the parser.\u001b[39;00m\n\u001b[0;32m--> 620\u001b[0m parser \u001b[38;5;241m=\u001b[39m \u001b[43mTextFileReader\u001b[49m\u001b[43m(\u001b[49m\u001b[43mfilepath_or_buffer\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[38;5;241;43m*\u001b[39;49m\u001b[43mkwds\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    622\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m chunksize \u001b[38;5;129;01mor\u001b[39;00m iterator:\n\u001b[1;32m    623\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m parser\n",
+      "File \u001b[0;32m~/Library/Python/3.9/lib/python/site-packages/pandas/io/parsers/readers.py:1620\u001b[0m, in \u001b[0;36mTextFileReader.__init__\u001b[0;34m(self, f, engine, **kwds)\u001b[0m\n\u001b[1;32m   1617\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39moptions[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mhas_index_names\u001b[39m\u001b[38;5;124m\"\u001b[39m] \u001b[38;5;241m=\u001b[39m kwds[\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mhas_index_names\u001b[39m\u001b[38;5;124m\"\u001b[39m]\n\u001b[1;32m   1619\u001b[0m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mhandles: IOHandles \u001b[38;5;241m|\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[0;32m-> 1620\u001b[0m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_engine \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43m_make_engine\u001b[49m\u001b[43m(\u001b[49m\u001b[43mf\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mengine\u001b[49m\u001b[43m)\u001b[49m\n",
+      "File \u001b[0;32m~/Library/Python/3.9/lib/python/site-packages/pandas/io/parsers/readers.py:1880\u001b[0m, in \u001b[0;36mTextFileReader._make_engine\u001b[0;34m(self, f, engine)\u001b[0m\n\u001b[1;32m   1878\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mb\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;129;01min\u001b[39;00m mode:\n\u001b[1;32m   1879\u001b[0m         mode \u001b[38;5;241m+\u001b[39m\u001b[38;5;241m=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mb\u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[0;32m-> 1880\u001b[0m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mhandles \u001b[38;5;241m=\u001b[39m \u001b[43mget_handle\u001b[49m\u001b[43m(\u001b[49m\n\u001b[1;32m   1881\u001b[0m \u001b[43m    \u001b[49m\u001b[43mf\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1882\u001b[0m \u001b[43m    \u001b[49m\u001b[43mmode\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1883\u001b[0m \u001b[43m    \u001b[49m\u001b[43mencoding\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43moptions\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mencoding\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43;01mNone\u001b[39;49;00m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1884\u001b[0m \u001b[43m    \u001b[49m\u001b[43mcompression\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43moptions\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mcompression\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43;01mNone\u001b[39;49;00m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1885\u001b[0m \u001b[43m    \u001b[49m\u001b[43mmemory_map\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43moptions\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mmemory_map\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43;01mFalse\u001b[39;49;00m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1886\u001b[0m \u001b[43m    \u001b[49m\u001b[43mis_text\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mis_text\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1887\u001b[0m \u001b[43m    \u001b[49m\u001b[43merrors\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43moptions\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mencoding_errors\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mstrict\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1888\u001b[0m \u001b[43m    \u001b[49m\u001b[43mstorage_options\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43moptions\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mget\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mstorage_options\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[38;5;28;43;01mNone\u001b[39;49;00m\u001b[43m)\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m   1889\u001b[0m \u001b[43m\u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m   1890\u001b[0m \u001b[38;5;28;01massert\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mhandles \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m\n\u001b[1;32m   1891\u001b[0m f \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mhandles\u001b[38;5;241m.\u001b[39mhandle\n",
+      "File \u001b[0;32m~/Library/Python/3.9/lib/python/site-packages/pandas/io/common.py:873\u001b[0m, in \u001b[0;36mget_handle\u001b[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)\u001b[0m\n\u001b[1;32m    868\u001b[0m \u001b[38;5;28;01melif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(handle, \u001b[38;5;28mstr\u001b[39m):\n\u001b[1;32m    869\u001b[0m     \u001b[38;5;66;03m# Check whether the filename is to be opened in binary mode.\u001b[39;00m\n\u001b[1;32m    870\u001b[0m     \u001b[38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.\u001b[39;00m\n\u001b[1;32m    871\u001b[0m     \u001b[38;5;28;01mif\u001b[39;00m ioargs\u001b[38;5;241m.\u001b[39mencoding \u001b[38;5;129;01mand\u001b[39;00m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mb\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;129;01min\u001b[39;00m ioargs\u001b[38;5;241m.\u001b[39mmode:\n\u001b[1;32m    872\u001b[0m         \u001b[38;5;66;03m# Encoding\u001b[39;00m\n\u001b[0;32m--> 873\u001b[0m         handle \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mopen\u001b[39;49m\u001b[43m(\u001b[49m\n\u001b[1;32m    874\u001b[0m \u001b[43m            \u001b[49m\u001b[43mhandle\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    875\u001b[0m \u001b[43m            \u001b[49m\u001b[43mioargs\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mmode\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    876\u001b[0m \u001b[43m            \u001b[49m\u001b[43mencoding\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43mioargs\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mencoding\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    877\u001b[0m \u001b[43m            \u001b[49m\u001b[43merrors\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[43merrors\u001b[49m\u001b[43m,\u001b[49m\n\u001b[1;32m    878\u001b[0m \u001b[43m            \u001b[49m\u001b[43mnewline\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[1;32m    879\u001b[0m \u001b[43m        \u001b[49m\u001b[43m)\u001b[49m\n\u001b[1;32m    880\u001b[0m     \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m    881\u001b[0m         \u001b[38;5;66;03m# Binary mode\u001b[39;00m\n\u001b[1;32m    882\u001b[0m         handle \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mopen\u001b[39m(handle, ioargs\u001b[38;5;241m.\u001b[39mmode)\n",
+      "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'co2_emissions.csv'"
+     ]
+    }
+   ],
+   "source": [
+    "# %% [markdown]\n",
+    "## 1. Load and Merge Data\n",
+    "\n",
+    "\n",
+    "# %%\n",
+    "def load_and_merge(latest_year=None):\n",
+    "    co2 = pd.read_csv(CO2_PATH)\n",
+    "    poverty = pd.read_csv(POVERTY_PATH)\n",
+    "    revenue = pd.read_csv(REVENUE_PATH)\n",
+    "\n",
+    "    max_common_year = min(co2['year'].max(), poverty['year'].max(), revenue['year'].max())\n",
+    "    year = latest_year or max_common_year\n",
+    "\n",
+    "    co2_y = co2[co2['year'] == year][['country', 'co2_per_capita']]\n",
+    "    pov_y = poverty[poverty['year'] == year][['country', 'extreme_poverty_share']]\n",
+    "    rev_y = revenue[revenue['year'] == year][['country', 'revenue_gap_pct']]\n",
+    "\n",
+    "    df = co2_y.merge(pov_y, on='country').merge(rev_y, on='country')\n",
+    "    df.dropna(inplace=True)\n",
+    "    return df.reset_index(drop=True), year\n",
+    "\n",
+    "# %%\n",
+    "df, year = load_and_merge()\n",
+    "print(f\"Merged data: {df.shape[0]} countries for year {year}\")\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
